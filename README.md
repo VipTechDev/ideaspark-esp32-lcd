@@ -1,7 +1,7 @@
-# Ideaspark ESP32 1.14" LCD Development Board
+# Ideaspark ESP32 1.14" LCD Development Board  
 *A VipTechDev‑curated module for makers, tinkerers, and product builders.*
 
-The Ideaspark ESP32 LCD board is a compact, powerful development module featuring an ESP32 microcontroller and a bright 1.14" ST7789 display. This repository provides everything you need to get started: setup instructions, example code, animations, and a friendly quick‑start guide.
+The Ideaspark ESP32 LCD board is a compact, powerful development module featuring an ESP32 microcontroller and a bright 1.14" ST7789 display. This repository provides everything you need to get started using **Visual Studio Code + PlatformIO**, including setup instructions, example projects, animations, and a friendly quick‑start guide.
 
 ---
 
@@ -17,8 +17,8 @@ The Ideaspark ESP32 LCD board is a compact, powerful development module featurin
 ---
 
 ## 📦 What’s in this Repository
-- **Quick Start Guide** (friendly setup walkthrough)  
-- **Example sketches**  
+- **Quick Start Guide** (PlatformIO‑focused setup)  
+- **Example PlatformIO projects**  
   - Hello World  
   - Display test  
   - VipTechDev boot animation  
@@ -27,36 +27,66 @@ The Ideaspark ESP32 LCD board is a compact, powerful development module featurin
 
 ---
 
-## 🛠️ Getting Started
-If you’re new to the board, start with the Quick Start Guide:
+## 🛠️ Getting Started with PlatformIO
 
-👉 **`/docs/QuickStart.md`**
+### 1. Install Visual Studio Code  
+Download from: https://code.visualstudio.com/
 
-It covers:
-- Installing the CH340 driver  
-- Adding ESP32 support to Arduino IDE  
-- Installing the ST7789 display libraries  
-- Configuring board settings  
-- Running your first sketch  
+### 2. Install PlatformIO Extension  
+In VS Code:  
+**Extensions → Search “PlatformIO IDE” → Install**
+
+### 3. Install CH340 Driver  
+Your computer needs this to talk to the board.  
+Search for: `CH340 driver`  
+Install the version for your OS.
+
+### 4. Create a New PlatformIO Project  
+- Click the **PlatformIO Home** icon  
+- Choose **New Project**  
+- Name: `ideaspark-esp32-lcd`  
+- Board: **ESP32 Dev Module**  
+- Framework: **Arduino**  
+- Finish
+
+PlatformIO will generate a full project structure for you.
+
+---
+
+## 📚 Add Required Libraries
+
+Open `platformio.ini` and add:
+
+```ini
+lib_deps =
+    adafruit/Adafruit ST7735 and ST7789 Library
+    adafruit/Adafruit GFX Library
+```
+
+PlatformIO will automatically install dependencies like Adafruit seesaw.
 
 ---
 
 ## 🔌 Pinout Overview
 
-| Function     | ESP32 Pin |
-|--------------|-----------|
-| LCD MOSI     | 23        |
-| LCD SCLK     | 18        |
-| LCD CS       | 15        |
-| LCD DC       | 2         |
-| LCD RST      | 4         |
-| LCD Backlight| 32        |
+| Function      | ESP32 Pin |
+|---------------|-----------|
+| LCD MOSI      | 23        |
+| LCD SCLK      | 18        |
+| LCD CS        | 15        |
+| LCD DC        | 2         |
+| LCD RST       | 4         |
+| LCD Backlight | 32        |
 
 ---
 
 ## 🧪 Example: Hello VipTechDev
 
+Create a file at:  
+`src/main.cpp`
+
 ```cpp
+#include <Arduino.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
 
@@ -70,54 +100,46 @@ It covers:
 Adafruit_ST7789 lcd = Adafruit_ST7789(LCD_CS, LCD_DC, LCD_RST);
 
 void setup() {
-  lcd.init(135, 240);
-  lcd.fillScreen(ST77XX_BLACK);
+    pinMode(LCD_BLK, OUTPUT);
+    digitalWrite(LCD_BLK, HIGH); // turn on backlight
+
+    lcd.init(135, 240);
+    lcd.fillScreen(ST77XX_BLACK);
 }
 
 void loop() {
-  lcd.setTextSize(3);
-  lcd.print("Hello, VipTechDev!");
-  delay(100000);
+    lcd.setTextSize(3);
+    lcd.setCursor(10, 10);
+    lcd.print("Hello, VipTechDev!");
+    delay(100000);
 }
 ```
-
-More examples are available in the `/examples` folder.
 
 ---
 
 ## 🎨 VipTechDev Boot Animation
-This repo includes a polished boot animation used for product testing and customer‑facing demos.  
-You’ll find it in:
+A polished boot animation used for product testing and customer demos is included in:
 
 👉 **`/examples/BootAnimation/`**
 
 ---
 
-## 🧰 Required Libraries
-Install these through Arduino Library Manager:
+## 🧰 PlatformIO Build & Upload
 
-- **Adafruit ST7735 and ST7789 Library**  
-- **Adafruit GFX Library**  
-- **Adafruit seesaw Library** (dependency)
+### Build:
+```
+PlatformIO: Build (checkmark icon)
+```
 
----
+### Upload:
+```
+PlatformIO: Upload (right‑arrow icon)
+```
 
-## 💻 Board Settings (Arduino IDE)
-
-| Setting                     | Value                                   |
-|-----------------------------|-------------------------------------------|
-| Board                       | ESP32 Dev Module                         |
-| Upload Speed                | 240000                                   |
-| CPU Frequency               | 240MHz (WiFi/BT)                         |
-| Flash Frequency             | 80MHz                                    |
-| Flash Mode                  | QIO                                      |
-| Flash Size                  | 4MB (32Mb)                               |
-| Partition Scheme            | Default 4MB with spiffs                  |
-| PSRAM                       | Disabled                                 |
-| Core Debug Level            | None                                     |
-| Programmer                  | Default                                  |
-| Erase Flash Before Upload   | Disabled                                 |
-| Flash Encryption            | Disabled                                 |
+### Serial Monitor:
+```
+PlatformIO: Monitor (plug icon)
+```
 
 ---
 
@@ -132,6 +154,12 @@ Install the CH340 driver.
 ### Display stays white  
 Check wiring and ensure the correct pins are defined.
 
+### Upload errors  
+Try lowering upload speed in `platformio.ini`:
+```ini
+upload_speed = 115200
+```
+
 ---
 
 ## 🏷️ License
@@ -140,6 +168,4 @@ MIT License — feel free to build on this, modify it, and use it in your own pr
 ---
 
 ## 📬 Support
-For help, ideas, or collaboration:
-
-**support@viptechdev.com**
+If you need help, want to report an issue, or have ideas to improve the project, please open an issue on the GitHub repository.
