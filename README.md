@@ -16,6 +16,12 @@ The Ideaspark ESP32 LCD board is a compact, powerful development module featurin
 
 ---
 
+## 📐 Pinout Diagram
+![Ideaspark ESP32 Pinout (Light)](assets/LightPinout.png)
+![Ideaspark ESP32 Pinout (Dark)](assets/DarkPinout.png)
+
+---
+
 ## 📦 What’s in this Repository
 - **Quick Start Guide** (PlatformIO‑focused setup)  
 - **Example PlatformIO projects**  
