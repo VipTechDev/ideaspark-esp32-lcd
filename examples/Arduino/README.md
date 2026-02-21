@@ -12,7 +12,9 @@ These examples are provided for users who prefer the Arduino IDE. They mirror th
 
 ---
 
-## ✔Recommended environment: While Arduino IDE works fine, the recommended workflow is PlatformIO, which offers cleaner project structure, automatic library management, easier example organisation, and better scalability for real projects. If you're new to development, consider trying PlatformIO after experimenting here.
+## ✔Recommended environment: 
+
+While Arduino IDE works fine, the recommended workflow is PlatformIO, which offers cleaner project structure, automatic library management, easier example organisation, and better scalability for real projects. If you're new to development, consider trying PlatformIO after experimenting here.
 
 ---
 
@@ -29,6 +31,8 @@ Install these from Sketch → Include Library → Manage Libraries. Search and i
 
 - Adafruit GFX Library
 - Adafruit ST7735 and ST7789 Library
+
+---
 
 ## 🔧Board selection: Use the standard ESP32 board package: Tools → Board → ESP32 Dev Module
 
