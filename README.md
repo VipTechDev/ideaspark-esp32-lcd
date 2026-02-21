@@ -103,6 +103,8 @@ They’re designed to help beginners get started quickly, but PlatformIO remains
 
 If you're new to development, I encourage you to try the PlatformIO examples first — they’re better organised and easier to extend into real projects.
 
+---
+
 ## 🔌 Pinout Overview
 
 | Function      | ESP32 Pin |
