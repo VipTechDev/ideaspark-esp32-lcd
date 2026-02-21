@@ -52,7 +52,8 @@ In VS Code:
 **Extensions → Search “PlatformIO IDE” → Install**
 
 ### 3. Install CH340 Driver  
-Your computer needs this to talk to the board.  
+Your computer needs this to talk to the board.
+
 Search for: [CH340 driver](https://www.google.com/search?q=CH340+driver) 
 Install the version for your OS.
 
@@ -78,7 +79,7 @@ lib_deps =
     adafruit/Adafruit GFX Library
 ```
 
-PlatformIO will automatically install dependencies like Adafruit seesaw.
+PlatformIO will automatically install dependencies.
 
 ---
 
@@ -200,6 +201,8 @@ MIT License — feel free to build on this, modify it, and use it in your own pr
 
 ## 📬 Support
 If you need help, want to report an issue, or have ideas to improve the project, please open an issue on the GitHub repository.
+
+> **All boards are fully tested in the UK before shipping.**
 
 ---
 
