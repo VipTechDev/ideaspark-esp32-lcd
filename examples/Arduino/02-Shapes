@@ -1,1 +1,84 @@
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7789.h>
+#include <SPI.h>
 
+// These pins are fixed because the LCD is pre‑attached to the ESP32.
+// You do NOT need to wire anything.
+#define TFT_CS   15
+#define TFT_DC   2
+#define TFT_RST  4
+#define TFT_BLK  32
+
+// Create the display object
+Adafruit_ST7789 lcd = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+
+void setup() {
+    // Backlight pin
+    pinMode(TFT_BLK, OUTPUT);
+    digitalWrite(TFT_BLK, HIGH); // turn on backlight
+
+    // Initialise the display (135x240)
+    lcd.init(135, 240);
+    lcd.setRotation(1); // matches Ideaspark orientation
+
+    /*
+        This example shows how to draw basic shapes using the
+        Adafruit GFX graphics functions.
+
+        SHAPE FUNCTIONS USED HERE:
+
+        1) drawRect(x, y, width, height, colour)
+           x, y      = top‑left corner
+           width     = rectangle width
+           height    = rectangle height
+           colour    = outline colour
+
+        2) fillCircle(x, y, radius, colour)
+           x, y      = centre of the circle
+           radius    = size of the circle
+           colour    = fill colour
+
+        3) drawLine(x0, y0, x1, y1, colour)
+           x0, y0    = start point
+           x1, y1    = end point
+           colour    = line colour
+
+        4) drawTriangle(x0, y0, x1, y1, x2, y2, colour)
+           (x0,y0), (x1,y1), (x2,y2) = triangle corners
+           colour                    = outline colour
+
+        Try experimenting:
+        - Change colours (ST77XX_RED, ST77XX_BLUE, ST77XX_YELLOW…)
+        - Move shapes around by changing x/y
+        - Make shapes bigger or smaller
+        - Add your own shapes below!
+    */
+
+    // Clear the screen
+    lcd.fillScreen(ST77XX_BLACK);
+
+    // Rectangle outline
+    lcd.drawRect(10, 10, 80, 50, ST77XX_RED);
+
+    // Filled circle
+    lcd.fillCircle(150, 40, 20, ST77XX_BLUE);
+
+    // Line from bottom‑left to top‑right
+    lcd.drawLine(
+        0, lcd.height() - 1,
+        lcd.width(), 0,
+        ST77XX_YELLOW
+    );
+
+    // Triangle
+    lcd.drawTriangle(
+        60, 60,
+        20, 120,
+        100, 120,
+        ST77XX_GREEN
+    );
+}
+
+void loop() {
+    // Nothing here — everything happens in setup()
+}
