@@ -53,7 +53,7 @@ In VS Code:
 
 ### 3. Install CH340 Driver  
 Your computer needs this to talk to the board.  
-Search for: `CH340 driver`  
+Search for: [CH340 driver](https://www.google.com/search?q=CH340+driver) 
 Install the version for your OS.
 
 ### 4. Create a New PlatformIO Project  
@@ -81,6 +81,27 @@ lib_deps =
 PlatformIO will automatically install dependencies like Adafruit seesaw.
 
 ---
+
+## 🧩 Arduino IDE Support (Optional)
+
+This repository includes a small set of Arduino‑IDE‑compatible examples for users who prefer the Arduino workflow.  
+You can find them here:
+
+👉 **[Arduino Examples](examples/Arduino/README.md)**
+
+These sketches use the standard **Adafruit GFX** and **Adafruit ST7789** libraries and mirror the behaviour of the PlatformIO examples.
+
+---
+
+### ⚙️ Personal note from the developer
+
+My preferred development environment is **PlatformIO**, which I use for all my own projects.  
+It offers a cleaner project structure, automatic library management, and a more scalable workflow — especially when working with multiple boards or more advanced firmware.
+
+Because of that, I have **less day‑to‑day experience with the Arduino IDE**, and the Arduino examples provided here are intentionally simple.  
+They’re designed to help beginners get started quickly, but PlatformIO remains the recommended environment for anything beyond basic experimentation.
+
+If you're new to development, I encourage you to try the PlatformIO examples first — they’re better organised and easier to extend into real projects.
 
 ## 🔌 Pinout Overview
 
