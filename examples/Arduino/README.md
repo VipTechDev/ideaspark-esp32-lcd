@@ -34,7 +34,9 @@ Install these from Sketch → Include Library → Manage Libraries. Search and i
 
 ---
 
-## 🔧 Board selection: Use the standard ESP32 board package: Tools → Board → ESP32 Dev Module
+## 🔧 Board selection: 
+
+Use the standard ESP32 board package: Tools → Board → ESP32 Dev Module
 
 ---
 
