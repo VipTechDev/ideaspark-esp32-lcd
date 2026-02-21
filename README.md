@@ -17,6 +17,7 @@ The Ideaspark ESP32 LCD board is a compact, powerful development module featurin
 ---
 
 ## 📐 Pinout Diagram
+
 ![Ideaspark ESP32 Pinout (Light)](assets/LightPinout.png)
 ![Ideaspark ESP32 Pinout (Dark)](assets/DarkPinout.png)
 
@@ -25,11 +26,19 @@ The Ideaspark ESP32 LCD board is a compact, powerful development module featurin
 ## 📦 What’s in this Repository
 - **Quick Start Guide** (PlatformIO‑focused setup)  
 - **Example PlatformIO projects**  
-  - Hello World  
-  - Display test  
-  - VipTechDev boot animation  
+  - 01-SimpleText  
+  - 02-Shapes  
+  - 07-DemoAll
+  - and many more examples
+  
+The examples are numbered from simple to advanced, so beginners can follow them in order.
+    
 - **Pinout reference**  
-- **Links to drivers and libraries**  
+- **Links to drivers and libraries**
+
+For detailed usage instructions and example explanations, see:
+
+👉 **[`lib/IdeasparkLCD/README.md`](lib/IdeasparkLCD/README.md)**
 
 ---
 
@@ -88,7 +97,7 @@ PlatformIO will automatically install dependencies like Adafruit seesaw.
 
 ## 🧪 Example: Hello VipTechDev
 
-Create a file at:  
+Create or edit the file at:  
 `src/main.cpp`
 
 ```cpp
@@ -120,13 +129,6 @@ void loop() {
     delay(100000);
 }
 ```
-
----
-
-## 🎨 VipTechDev Boot Animation
-A polished boot animation used for product testing and customer demos is included in:
-
-👉 **`/examples/BootAnimation/`**
 
 ---
 
@@ -175,3 +177,11 @@ MIT License — feel free to build on this, modify it, and use it in your own pr
 
 ## 📬 Support
 If you need help, want to report an issue, or have ideas to improve the project, please open an issue on the GitHub repository.
+
+---
+
+## 🌐 Connect with VipTechDev
+Follow the project and future boards here:  
+👉 **Facebook: Viptechdev – Microcontroller Projects & UK Tested Boards**  
+👉 **GitHub: https://github.com/VipTechDev**
+
