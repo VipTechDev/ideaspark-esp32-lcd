@@ -1,1 +1,80 @@
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7789.h>
+#include <SPI.h>
 
+// These pins are fixed because the LCD is pre‑attached to the ESP32.
+// No wiring needed — just upload and enjoy.
+#define TFT_CS   15
+#define TFT_DC   2
+#define TFT_RST  4
+#define TFT_BLK  32
+
+// Create the display object
+Adafruit_ST7789 lcd = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+
+void setup() {
+    // Backlight pin
+    pinMode(TFT_BLK, OUTPUT);
+    digitalWrite(TFT_BLK, HIGH); // turn on backlight
+
+    // Initialise the display (135x240)
+    lcd.init(135, 240);
+    lcd.setRotation(1); // matches Ideaspark orientation
+
+    /*
+        This example shows how to draw text on the screen.
+
+        The Adafruit GFX text functions work like this:
+            lcd.setCursor(x, y);
+            lcd.setTextSize(size);
+            lcd.setTextColor(colour);
+            lcd.print("Your message");
+
+        - x, y:     Position on the screen (in pixels)
+        - size:     1 = small, 2 = medium, 3 = large
+        - colour:   Any ST77XX_ colour constant
+
+        Try experimenting:
+        - Change the message
+        - Try different sizes (1–4)
+        - Try different colours (ST77XX_RED, ST77XX_YELLOW, ST77XX_WHITE…)
+        - Move the text around by changing x/y
+    */
+
+    // Clear the screen to black
+    lcd.fillScreen(ST77XX_BLACK);
+
+    // Draw a title
+    lcd.setCursor(10, 20);
+    lcd.setTextSize(2);
+    lcd.setTextColor(ST77XX_GREEN);
+    lcd.print("Hello Ideaspark!");
+
+    // A second line for beginners to edit
+    lcd.setCursor(10, 60);
+    lcd.setTextColor(ST77XX_CYAN);
+    lcd.print("Edit me!");
+
+    /*
+        Want a challenge?
+
+        Try adding more lines:
+            lcd.setCursor(10, 100);
+            lcd.setTextColor(ST77XX_MAGENTA);
+            lcd.print("Your name here");
+
+        Try mixing sizes:
+            lcd.setTextSize(4);
+            lcd.setCursor(10, 140);
+            lcd.setTextColor(ST77XX_RED);
+            lcd.print("BIG!");
+
+        Try making a rainbow:
+            - Change the colour each time
+            - Or use a loop to generate colours
+    */
+}
+
+void loop() {
+    // Nothing here — everything happens in setup()
+}
