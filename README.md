@@ -1,6 +1,8 @@
 # Ideaspark ESP32 1.14" LCD Development Board  
 *A VipTechDev‑curated module for makers, tinkerers, and product builders.*
 
+ ![Hero image](assets/HeroShot.jpg)
+
 The Ideaspark ESP32 LCD board is a compact, powerful development module featuring an ESP32 microcontroller and a bright 1.14" ST7789 display. This repository provides everything you need to get started using **Visual Studio Code + PlatformIO**, including setup instructions, example projects, animations, and a friendly quick‑start guide.
 
 ---
